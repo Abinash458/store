@@ -8,6 +8,7 @@ module.exports = merge(commonConfig, () => {
         devServer: {
             contentBase: './dist',
             hot: true,
+            port: 3000,
         },
         mode: 'development',
     };

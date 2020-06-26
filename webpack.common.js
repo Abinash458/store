@@ -28,10 +28,36 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: [
+                test: /\.module\.s(a|c)ss$/,
+                loader: [
                     'style-loader',
-                    'css-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            // sourceMap: isDevelopment
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        // options: {
+                        //     sourceMap: isDevelopment
+                        // }
+                    }
+                ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+                loader: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        // options: {
+                        //     sourceMap: isDevelopment
+                        // }
+                    }
                 ]
             },
             {
