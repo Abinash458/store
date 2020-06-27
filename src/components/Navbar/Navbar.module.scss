@@ -1,4 +1,4 @@
-li, a {
+li, a, button {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -7,10 +7,10 @@ li, a {
 }
 
 header {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
+    padding: 10px 8%;
     background-color: whitesmoke;
     box-shadow: 0 6px 6px -6px rgba($color: #000000, $alpha: 0.3);
 }
@@ -44,13 +44,18 @@ header {
     background: gray;
     border-radius: 30px;
     cursor: pointer;
-    // padding: 5px;
     .innerCircle {
         width: 25px;
         height: 25px;
         background-color: white;
         border-radius: 50%;
     }
+}
+
+.right_nav_items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 478px) {

@@ -1,6 +1,6 @@
 export default {
     colors: {
-        background: "black",
-        textColor: "white",
+        background: "#212121",
+        textColor: "#8AC0EC",
     }
 }
