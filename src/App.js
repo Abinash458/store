@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import lightTheme from './theme/Light';
 import darkTheme from './theme/Dark';
 import Container from './theme/components/Container';
-import { darkModeAction } from './redux/actions/config_action';
+import { darkModeAction, handleDetail, addToCart } from './redux/actions/config_action';
 
 import Navbar from './components/Navbar/Navbar';
 import ProductList from './components/ProductList/ProductList';
@@ -15,13 +15,14 @@ import Cart from './components/Cart/Cart';
 import Default from './components/Default/Default';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from './App.module.scss';
+import './App.css';
 
 
 const App = () => {
     const dispatch = useDispatch();
     const config = useSelector(state => state.config);
-    const themeMode = config.darkMode
+    const products = useSelector(state => state.productReducer.products);
+    // console.log(product)
     useEffect(() => {
         if(!config.darkMode) {
             dispatch(darkModeAction(window.localStorage.getItem('theme')))
@@ -39,7 +40,7 @@ const App = () => {
                 <React.Fragment>
                     <Navbar themeChange={themeChange} />
                     <Switch>
-                        <Route exact path="/" component={ProductList} />
+                        <Route exact path="/" component={() => <ProductList products={products} />} />
                         <Route path="/details" component={ProductDetails} />
                         <Route path="/cart" component={Cart} />
                         <Route component={Default} />

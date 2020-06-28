@@ -31,45 +31,31 @@ module.exports = {
                 }
             },
             {
-                test: /\.module\.s(a|c)ss$/,
-                loader: [
+                test: /\.css$/,
+                use: [
                     'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            // sourceMap: isDevelopment
+                  {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: true
                         }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        // options: {
-                        //     sourceMap: isDevelopment
-                        // }
                     }
-                ]
-            },
-            {
-                test: /\.s(a|c)ss$/,
-                exclude: /\.module.(s(a|c)ss)$/,
-                loader: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                        // options: {
-                        //     sourceMap: isDevelopment
-                        // }
-                    }
-                ]
+                ],
+                include: /\.module\.css$/
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
+                exclude: /\.module\.css$/
             },
             {
                 test: /\.(jpe?g|png|gif|svg|webp)$/i,
                 use: [
+                    'url-loader',
                     {
                         loader: 'file-loader',
                         options: {
