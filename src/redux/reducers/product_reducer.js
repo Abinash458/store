@@ -1,16 +1,11 @@
-import { storeProducts, detailProduct } from '../../shared/data';
+import { storeProducts } from '../../shared/data';
+import { FETCH_PRODUCT } from '../actions/types';
 
-export const initialState = {
-    products: storeProducts,
-    detailedProduct: detailProduct
-}
-
-export default function(state = initialState, action) {
-    // switch(action.type){
-    //     case DARK_MODE:
-    //         return { ...state, darkMode: action.payload}
-    //     default:
-    //         return state;
-    // }
-    return state;
+export default function(state = { products: storeProducts }, action) {
+    switch (action.type) {
+        case FETCH_PRODUCT:
+            return { ...state}
+        default: 
+            return state
+    }   
 };

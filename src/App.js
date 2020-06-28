@@ -18,7 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 const App = (props) => {
-    console.log(props)
+    // console.log(props)
     const dispatch = useDispatch();
     const config = useSelector(state => state.config);
     // const products = useSelector(state => state.productReducer.products);
@@ -40,7 +40,7 @@ const App = (props) => {
                     <Navbar themeChange={themeChange} />
                     <Switch>
                         <Route exact path="/" component={() => <ProductList products={props.products} />} />
-                        <Route path="/details" component={ProductDetails} />
+                        <Route path="/details" component={() => <ProductDetails productDetail={props.detailProducts} />} />
                         <Route path="/cart" component={Cart} />
                         <Route component={Default} />
                     </Switch>
@@ -53,7 +53,7 @@ const App = (props) => {
 const mapStateToProps = state => {
     return {
         products: state.productReducer.products,
-        detailProducts: state.productReducer.detailedProduct
+        detailProducts: state.detailProductReducer.detailedProduct
     }
 }
 

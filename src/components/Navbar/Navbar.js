@@ -30,7 +30,7 @@ const Navbar = (props) => {
                         :
                             <Brightness4Icon style={{ fontSize: 35, cursor: 'pointer' }} onClick={() => props.themeChange('dark')}/>
                     }
-                    <Link to="/cart" className="mr-auto">
+                    <Link to="/cart" className="mr-auto px-3">
                         <ButtonContainer>
                             <span className="mr-2">
                                 <i className="fas fa-cart-plus" />
