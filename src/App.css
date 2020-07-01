@@ -1,31 +1,33 @@
 :root {
-    --mainBlue: #2a2a72;
-    --lightBlue: #009ffd;
-    --mainWhite: #f3f3f3;
-    --mainDark: #232528;
-    --mainYellow: #ffa400;
+  --mainBlue: #2a2a72;
+  --lightBlue: #009ffd;
+  --mainWhite: #f3f3f3;
+  --mainDark: #232528;
+  --mainYellow: #ffa400;
 
-    --darkTheme: black;
-    --darkThemeText: white;
+  --darkTheme: black;
+  --darkThemeText: white;
 
-    --lightTheme: white;
-    --lightThemeText: black;
+  --lightTheme: white;
+  --lightThemeText: black;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body, html {
-    font-family: 'Poppins', sans-serif !important;
+body,
+html {
+  font-family: "Poppins", sans-serif !important;
+  background-color: #f7f7f7;
 }
 
 .text-title {
-    font-family: 'Poppins', sans-serif !important;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
+  font-family: "Poppins", sans-serif !important;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
 }
 
 /* .text-blue {

@@ -29,7 +29,6 @@
     "react-redux": "^7.1.0-rc.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1"
   },
@@ -46,8 +45,6 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "path": "^0.12.7",
-    "sass": "^1.26.9",
-    "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^4.1.0",
