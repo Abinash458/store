@@ -17,6 +17,7 @@ import ProductList from "./components/ProductList/ProductList";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Default from "./components/Default/Default";
+import Modal from "./components/Customised Components/Modal";
 
 import { storeProducts, detailProduct } from "./shared/data";
 
@@ -40,6 +41,9 @@ class App extends Component {
   state = {
     products: storeProducts,
     productDetail: detailProduct,
+    cart: [],
+    modalOpen: false,
+    modalProduct: detailProduct,
   };
 
   getItem = (id) => {
@@ -55,7 +59,32 @@ class App extends Component {
   };
 
   addToCart = (id) => {
-    console.log(`Item is Added to cart id:`, id);
+    let tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(this.getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+    this.setState(() => {
+      return {
+        products: tempProducts,
+        cart: [...this.state.cart, product],
+      };
+    });
+  };
+
+  openModal = (id) => {
+    const products = this.getItem(id);
+    this.setState(() => {
+      return { modalProduct: products, modalOpen: true };
+    });
+  };
+
+  closeModal = () => {
+    this.setState(() => {
+      return { modalOpen: false };
+    });
   };
 
   render() {
@@ -72,21 +101,32 @@ class App extends Component {
             path="/"
             component={() => (
               <ProductList
-                handleDetail={this.handleDetail}
                 products={this.state.products}
+                handleDetail={this.handleDetail}
                 addToCart={this.addToCart}
+                openModal={this.openModal}
               />
             )}
           />
           <Route
             path="/details"
             component={() => (
-              <ProductDetails productDetail={this.state.productDetail} />
+              <ProductDetails
+                productDetail={this.state.productDetail}
+                openModal={this.openModal}
+                addToCart={this.addToCart}
+              />
             )}
           />
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <Modal
+          openModal={this.openModal}
+          closeModal={this.closeModal}
+          modalOpen={this.state.modalOpen}
+          modalProduct={this.state.modalProduct}
+        />
       </React.Fragment>
       // {/* </Container> */}
       //   </ThemeProvider>

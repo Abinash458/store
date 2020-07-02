@@ -17,6 +17,7 @@ class ProductList extends Component {
                     product={product}
                     handleDetail={this.props.handleDetail}
                     addToCart={this.props.addToCart}
+                    openModal={this.props.openModal}
                   />
                 );
               })}

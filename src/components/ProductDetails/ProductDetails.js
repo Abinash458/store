@@ -42,7 +42,14 @@ const ProductDetails = (props) => {
             <Link to="/">
               <ButtonContainer>back to product</ButtonContainer>
             </Link>
-            <ButtonContainer cart disabled={inCart ? true : false}>
+            <ButtonContainer
+              cart
+              disabled={inCart ? true : false}
+              onClick={() => {
+                props.addToCart(id);
+                props.openModal(id);
+              }}
+            >
               {inCart ? "inCart" : "add to cart"}
             </ButtonContainer>
           </div>

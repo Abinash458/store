@@ -19,7 +19,10 @@ class Product extends Component {
             <button
               className="cart-btn"
               disabled={inCart ? true : false}
-              onClick={() => this.props.addToCart(id)}
+              onClick={() => {
+                this.props.addToCart(id);
+                this.props.openModal(id);
+              }}
             >
               {inCart ? (
                 <p className="text-capitalize mb-0" disabled>
