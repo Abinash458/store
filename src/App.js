@@ -18,6 +18,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Default from "./components/Default/Default";
 import Modal from "./components/Customised Components/Modal";
+import CommentModal from "./components/Comment/CommentModal";
 
 import { storeProducts, detailProduct } from "./shared/data";
 
@@ -43,6 +44,7 @@ class App extends Component {
     productDetail: detailProduct,
     cart: [],
     modalOpen: false,
+    commentModal: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
@@ -111,6 +113,8 @@ class App extends Component {
       return { modalOpen: false };
     });
   };
+
+  // Cart Functions
 
   increment = (id) => {
     let tempCart = [...this.state.cart];
@@ -205,6 +209,26 @@ class App extends Component {
     });
   };
 
+  // Comment Functions
+
+  openComment = () => {
+    this.setState(() => {
+      return { commentModal: true };
+    });
+  };
+
+  closeComment = () => {
+    this.setState(() => {
+      return { commentModal: false };
+    });
+  };
+
+  handleCommentSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submited");
+    this.closeComment();
+  };
+
   render() {
     return (
       // <ThemeProvider
@@ -235,6 +259,8 @@ class App extends Component {
                 productDetail={this.state.productDetail}
                 openModal={this.openModal}
                 addToCart={this.addToCart}
+                openComment={this.openComment}
+                closeComment={this.closeComment}
               />
             )}
           />
@@ -260,6 +286,12 @@ class App extends Component {
           closeModal={this.closeModal}
           modalOpen={this.state.modalOpen}
           modalProduct={this.state.modalProduct}
+        />
+        <CommentModal
+          commentModal={this.state.commentModal}
+          openComment={this.openComment}
+          closeComment={this.closeComment}
+          handleCommentSubmit={this.handleCommentSubmit}
         />
       </React.Fragment>
       // {/* </Container>
