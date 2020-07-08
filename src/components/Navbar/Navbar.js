@@ -5,11 +5,11 @@ import styled from "styled-components";
 import styles from "./Navbar.module.css";
 import { ButtonContainer } from "../Customised Components/Button";
 
-// import Brightness7Icon from '@material-ui/icons/Brightness7';
-// import Brightness4Icon from '@material-ui/icons/Brightness4'
+// import Brightness7Icon from "@material-ui/icons/Brightness7";
+// import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 const Navbar = (props) => {
-  // const themeMode = window.localStorage.getItem('theme');
+  // const themeMode = window.localStorage.getItem("theme");
   return (
     <div>
       <NavWrapper>
@@ -23,13 +23,17 @@ const Navbar = (props) => {
                     </ul>
                 </nav> */}
         <div className={styles.right_nav_items}>
-          {/* {
-                        themeMode === "dark" ?
-                            <Brightness7Icon style={{ fontSize: 35, cursor: 'pointer' }} onClick={() => props.themeChange('light')}/>
-
-                        :
-                            <Brightness4Icon style={{ fontSize: 35, cursor: 'pointer' }} onClick={() => props.themeChange('dark')}/>
-                    } */}
+          {/* {themeMode === "dark" ? (
+            <Brightness7Icon
+              style={{ fontSize: 35, cursor: "pointer" }}
+              onClick={() => props.themeChange("light")}
+            />
+          ) : (
+            <Brightness4Icon
+              style={{ fontSize: 35, cursor: "pointer" }}
+              onClick={() => props.themeChange("dark")}
+            />
+          )} */}
           <Link to="/cart" className="mr-auto px-3">
             <ButtonContainer>
               <span className="mr-2">

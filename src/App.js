@@ -1,5 +1,5 @@
 import React, { Component, useEffect } from "react";
-// import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 // import { useSelector, useDispatch, connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 
@@ -193,7 +193,7 @@ class App extends Component {
   addTotals = () => {
     let subTotal = 0;
     this.state.cart.map((item) => (subTotal += item.total));
-    const tempTax = subTotal * 0.18;
+    const tempTax = subTotal * 0.08;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
     this.setState(() => {
@@ -207,8 +207,10 @@ class App extends Component {
 
   render() {
     return (
-      //   <ThemeProvider theme={config.darkMode === "dark" ? darkTheme : lightTheme}>
-      // {/* <Container> */}
+      // <ThemeProvider
+      //   theme={config.darkMode === "dark" ? darkTheme : lightTheme}
+      // >
+      //   <Container>
       <React.Fragment>
         <Navbar
         // themeChange={themeChange}
@@ -260,8 +262,8 @@ class App extends Component {
           modalProduct={this.state.modalProduct}
         />
       </React.Fragment>
-      // {/* </Container> */}
-      //   </ThemeProvider>
+      // {/* </Container>
+      // </ThemeProvider> */}
     );
   }
 }

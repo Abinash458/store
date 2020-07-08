@@ -18,7 +18,8 @@ const CartItem = (props) => {
         {title}
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <span className="d-lg-none"> price : </span> <strong>${price}</strong>
+        <span className="d-lg-none"> price : </span>{" "}
+        <strong>&#8377;{price}</strong>
       </div>
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
         <div className="d-flex justify-content-center">
@@ -39,7 +40,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <strong> item total: $ </strong>
+        <strong> item total: &#8377; </strong>
         {total}
       </div>
     </div>

@@ -21,15 +21,15 @@ const CartTotals = (props) => {
               <span className="text-title">
                 subtotal :{" "}
                 <span>
-                  <strong>${cartSubTotal}</strong>
+                  <strong>&#8377;{cartSubTotal}</strong>
                 </span>
               </span>
             </h5>
             <h5>
               <span className="text-title">
-                gst :{" "}
+                tax :{" "}
                 <span>
-                  <strong>${cartTax}</strong>
+                  <strong>&#8377;{cartTax}</strong>
                 </span>
               </span>
             </h5>
@@ -38,7 +38,7 @@ const CartTotals = (props) => {
               <span className="text-title">
                 total :{" "}
                 <span>
-                  <strong>${cartTotal}</strong>
+                  <strong>&#8377;{cartTotal}</strong>
                 </span>
               </span>
             </h5>
