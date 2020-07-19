@@ -66,6 +66,10 @@ class App extends Component {
         products: tempProducts,
       };
     });
+    // setTimeout(() => {
+    //   console.log(this.state.products[0].comments)
+
+    // }, 200);
   };
 
   getItem = (id) => {
@@ -197,7 +201,7 @@ class App extends Component {
   addTotals = () => {
     let subTotal = 0;
     this.state.cart.map((item) => (subTotal += item.total));
-    const tempTax = subTotal * 0.08;
+    const tempTax = subTotal * 0.05;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
     this.setState(() => {

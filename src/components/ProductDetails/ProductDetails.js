@@ -1,9 +1,39 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "../Customised Components/Button";
-import CommentModal from "../Comment/CommentModal";
 
 class ProductDetails extends Component {
+
+
+  renderComments(comments) {
+    if (comments == null) {
+      return (<div></div>)
+    }
+    const cmnts = comments.map(comment => {
+      return (
+        <li key={comment.id}>
+          <h4 className="text-slanted">{comment.comment}</h4>
+          <p className="text-muted">-- {comment.author},
+          &nbsp;
+          {new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+          }).format(new Date(comment.date))}
+          </p>
+        </li>
+      )
+    })
+    return (
+      <div>
+        <h2 className='py-4 text-blue'>All Comments Here</h2>
+        <ul className='list-unstyled'>
+          {cmnts}
+        </ul>
+      </div>
+    )
+  }
+
   render() {
     const {
       id,
@@ -13,7 +43,9 @@ class ProductDetails extends Component {
       info,
       title,
       inCart,
+      comments,
     } = this.props.productDetail;
+    const commentItem = this.renderComments(comments)
     return (
       <div className="container">
         {/* title */}
@@ -71,7 +103,7 @@ class ProductDetails extends Component {
         </div>
 
         <div className="py-4 text-center">
-          <h3 className="m-0">All Comments Here</h3>
+          {commentItem}
         </div>
       </div>
     );
